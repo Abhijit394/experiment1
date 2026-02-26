@@ -1,0 +1,92 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #1a001a 0%, #050505 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #Box {
+    width: 90%;
+    max-width: 600px;
+    padding: 50px;
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 2px solid #f003c4;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(240, 3, 196, 0.3);
+    text-align: center;
+    z-index: 10;
+  }
+
+  .question-text {
+    font-size: 28px;
+    color: #f003c4;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(240, 3, 196, 0.5);
+  }
+
+  /* Container to keep buttons side-by-side */
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Space between Yes and No */
+    position: relative;
+    height: 60px;
+  }
+
+  button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  #Stay {
+    background: #f003c4;
+    color: white;
+    box-shadow: 0 0 15px rgba(240, 3, 196, 0.6);
+  }
+
+  #runaway-btn {
+    background: #333;
+    color: #aaa;
+    /* We use absolute here relative to btn-group initially */
+    position: relative; 
+    z-index: 11;
+  }
+
+  #success-msg {
+    display: none;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 0 20px #f003c4;
+  }
+/* The idle "wiggle" animation */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+#runaway-btn {
+  /* ... keep your existing styles ... */
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Adds a "pop" effect */
+  animation: wiggle 2s infinite; /* Always wiggles slightly */
+}
+
+/* A class to trigger a quick scale-down when it moves */
+.btn-pop {
+  transform: scale(0.5);
+  opacity: 0;
+}
